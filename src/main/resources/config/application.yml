@@ -1,0 +1,57 @@
+
+################################################################################
+## Spring Boot Configuration
+################################################################################
+
+server:
+  port: 8080
+  tomcat:
+    accesslog:
+      enabled: true
+      directory: logs
+      pattern:  '%h %l %u %t "%r" %s %bbyte %Dms'
+    # basedir: /applog/mctl-planner
+
+spring:
+  profiles:
+    active: local
+  application:
+    name: mctl-planner
+    base-package: com.skt.swing.mcatalog
+  messages:
+    basename: classpath:/messages/core-message,classpath:/messages/message
+    cache-duration: -1
+    encoding: UTF-8
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+
+swagger-info:    
+  api-version: 1.0
+  title: SKT Swing MiniCaralog Planner API
+  desciprion: SKT Swing MiniCaralog Planner API
+  terms-service-url: http://..
+  license: Apache 2.0
+  license-url: https://www.apache.org/licenses/LICENSE-2.0
+  contact:
+    name: SKT Swing MiniCaralog
+    url: http://..
+    email: admin@test.com
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+    jdbc-type-for-null: "null"
+  mapper-locations:
+    - classpath:mapper/**/*.xml
+
+logging:
+  config: classpath:config/log/logback-${spring.profiles.active}.xml
+
+swing:
+  io:
+    whitelist:
+      - "/api/v1"

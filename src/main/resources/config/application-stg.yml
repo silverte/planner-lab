@@ -1,0 +1,14 @@
+################################################################################
+## Spring Boot Configuration
+################################################################################
+
+spring:
+  devtools:
+    livereload:
+      enabled: false
+    restart:
+      enabled: false
+      additional-paths: .
+  output:
+    ansi:
+      enabled: always

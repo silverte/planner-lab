@@ -1,0 +1,31 @@
+spring:
+  devtools:
+    livereload:
+      enabled: false
+    restart:
+      enabled: true
+      additional-paths: .
+  output:
+    ansi:
+      enabled: always
+  # datasource:
+  #   hikari:
+  #     auto-commit: false
+  #     connection-test-query: select 1 from dual
+  #     connection-timeout: 60000
+  #     maximum-pool-size: 30
+  #   type: com.zaxxer.hikari.HikariDataSource
+  #   driver-class-name: oracle.jdbc.OracleDriver
+  #   url: jdbc:oracle:thin:@172.31.229.51:1521:SWGMSAD
+  #   username: ${MSA_MC_USER}
+  #   password: ${MSA_MC_PASSWORD}
+  datasource:
+    hikari:
+      auto-commit: false
+      connection-test-query: select 1 from dual
+      connection-timeout: 60000
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://database-msa.cdnxkpguqzfr.ap-northeast-2.rds.amazonaws.com:3306/billDB
+    username: admin
+    password: msaadmin!
